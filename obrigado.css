@@ -1,0 +1,797 @@
+/* ==========================================================================
+   365 CARTAS BÍBLICAS - PÁGINA DE OBRIGADO / COMPRA CONFIRMADA
+   Design Editorial Premium, Acolhedor, Clareza de Entrega e UX/UI Sênior
+   ========================================================================== */
+
+:root {
+  --bg-dark-navy: #080d1a;
+  --bg-card-navy: #111a2e;
+  --bg-card-hover: #18243f;
+  --bg-card-border: rgba(243, 156, 18, 0.2);
+  
+  --gold-primary: #f39c12;
+  --gold-light: #fcd34d;
+  --gold-bright: #ffe066;
+  --gold-dark: #b45309;
+  --gold-gradient: linear-gradient(135deg, #ffe066 0%, #f39c12 50%, #d97706 100%);
+  --gold-glow: 0 0 30px rgba(243, 156, 18, 0.35);
+
+  --text-light: #f8fafc;
+  --text-cream: #f5efe3;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --text-dark: #0f172a;
+
+  --border-gold: rgba(243, 156, 18, 0.3);
+  --border-gold-subtle: rgba(243, 156, 18, 0.15);
+  --border-light: rgba(255, 255, 255, 0.08);
+
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif-accent: 'Cinzel', serif;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+  --shadow-btn: 0 8px 25px rgba(243, 156, 18, 0.35);
+  --shadow-glow: 0 0 40px rgba(243, 156, 18, 0.15);
+
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- Reset & Base --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-dark-navy);
+  color: var(--text-light);
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.thankyou-wrapper {
+  flex: 1;
+  width: 100%;
+  padding: 50px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Glow Effects */
+.bg-glow-top {
+  position: absolute;
+  top: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(243, 156, 18, 0.12) 0%, rgba(30, 58, 138, 0.15) 50%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-glow-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(19, 39, 62, 0.4) 0%, rgba(8, 13, 26, 0.8) 70%, transparent 100%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container-thankyou {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Brand Header Minimal --- */
+.thankyou-brand {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.brand-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(243, 156, 18, 0.08);
+  border: 1px solid var(--border-gold);
+  color: var(--gold-light);
+  font-family: var(--font-serif-accent);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: var(--radius-full);
+}
+
+/* --- Section 1: Confirmação da Compra --- */
+.hero-confirmation {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.confirmation-icon-wrapper {
+  margin: 0 auto 24px;
+  width: 84px;
+  height: 84px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-glow-ring {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(243, 156, 18, 0.25) 0%, transparent 70%);
+  animation: pulse-ring 3s infinite ease-in-out;
+}
+
+@keyframes pulse-ring {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+
+.confirmation-icon-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1f2e4d 0%, #111a2e 100%);
+  border: 2px solid var(--gold-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), var(--gold-glow);
+  position: relative;
+  z-index: 1;
+}
+
+.confirmation-icon-circle svg {
+  width: 36px;
+  height: 36px;
+  color: var(--gold-bright);
+}
+
+.confirmation-title {
+  font-family: var(--font-heading);
+  font-size: 2.35rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #ffffff;
+  margin-bottom: 14px;
+}
+
+.gold-gradient {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.confirmation-subheadline {
+  font-size: 1.15rem;
+  color: var(--text-cream);
+  max-width: 680px;
+  margin: 0 auto 20px;
+  line-height: 1.55;
+  font-weight: 400;
+}
+
+.email-highlight-card {
+  background: linear-gradient(135deg, rgba(24, 49, 79, 0.6) 0%, rgba(17, 26, 46, 0.8) 100%);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-md);
+  padding: 16px 24px;
+  max-width: 640px;
+  margin: 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.email-highlight-card .icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.email-highlight-card p {
+  font-size: 0.98rem;
+  color: #f1f5f9;
+  line-height: 1.5;
+  margin: 0;
+  text-align: left;
+}
+
+.gold-text-highlight {
+  color: var(--gold-light);
+  font-weight: 700;
+}
+
+/* --- Common Section Block Styles --- */
+.thankyou-section {
+  margin-bottom: 45px;
+}
+
+.section-card {
+  background: var(--bg-card-navy);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 38px 34px;
+  box-shadow: var(--shadow-card);
+  position: relative;
+}
+
+.section-heading-center {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.section-heading-center h2 {
+  font-family: var(--font-heading);
+  font-size: 1.7rem;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.section-heading-center p {
+  font-size: 0.96rem;
+  color: var(--text-muted);
+}
+
+/* --- Section 2: Formas de Uso (Cards) --- */
+.usage-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-bottom: 24px;
+}
+
+.usage-card {
+  background: linear-gradient(145deg, #15223c 0%, #0e172a 100%);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: var(--radius-md);
+  padding: 26px 22px;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-normal), border-color var(--transition-normal);
+}
+
+.usage-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-gold);
+}
+
+.usage-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.usage-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.28rem;
+  color: var(--gold-light);
+  font-weight: 700;
+}
+
+.usage-card-body {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin-bottom: 14px;
+  flex-grow: 1;
+}
+
+.usage-card-footer {
+  font-size: 0.86rem;
+  color: var(--gold-bright);
+  background: rgba(243, 156, 18, 0.08);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--gold-primary);
+  line-height: 1.45;
+}
+
+/* --- Delivery Notice Box --- */
+.delivery-notice-box {
+  background: rgba(19, 39, 62, 0.5);
+  border: 1px solid rgba(243, 156, 18, 0.25);
+  border-radius: var(--radius-md);
+  padding: 22px 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.delivery-notice-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.delivery-notice-content h3 {
+  font-family: var(--font-body);
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  margin-bottom: 6px;
+}
+
+.delivery-notice-content p {
+  font-size: 0.93rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+
+.delivery-notice-content p:last-child {
+  margin-bottom: 0;
+}
+
+.spam-tip {
+  color: var(--text-muted) !important;
+  font-size: 0.88rem !important;
+}
+
+/* --- Section 3: O que fazer agora (Steps) --- */
+.steps-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 18px;
+}
+
+.step-card {
+  background: linear-gradient(145deg, #131d33 0%, #0d1424 100%);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 22px 18px;
+  position: relative;
+  text-align: left;
+  transition: transform var(--transition-normal);
+}
+
+.step-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-gold-subtle);
+}
+
+.step-number {
+  font-family: var(--font-serif-accent);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--gold-primary);
+  line-height: 1;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.step-text {
+  font-size: 0.92rem;
+  color: #e2e8f0;
+  line-height: 1.55;
+}
+
+/* --- Section 4: Suporte --- */
+.support-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 22px;
+}
+
+.support-card {
+  background: linear-gradient(145deg, #142038 0%, #0d1526 100%);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 24px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.support-card-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.support-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.18rem;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.support-card-info {
+  font-size: 0.92rem;
+  color: var(--gold-light);
+  font-weight: 600;
+  margin-bottom: 18px;
+  word-break: break-all;
+}
+
+/* --- Buttons --- */
+.btn-primary-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--gold-gradient);
+  color: #080d1a;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 13px 24px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  box-shadow: var(--shadow-btn);
+  transition: all var(--transition-fast);
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-primary-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(243, 156, 18, 0.45);
+  color: #000000;
+}
+
+.btn-secondary-navy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #182846;
+  color: var(--text-cream);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 13px 24px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  border: 1px solid var(--border-gold);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-secondary-navy:hover {
+  background: #1f3358;
+  border-color: var(--gold-light);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* --- Section 5: Pedido de Review --- */
+.review-box {
+  background: radial-gradient(circle at 50% 0%, #1c2b4a 0%, #111a2e 70%);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-lg);
+  padding: 38px 32px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), var(--gold-glow);
+}
+
+.review-box h2 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: #ffffff;
+  margin-bottom: 14px;
+  line-height: 1.35;
+}
+
+.review-box p {
+  font-size: 0.98rem;
+  color: #cbd5e1;
+  line-height: 1.65;
+  max-width: 680px;
+  margin: 0 auto 14px;
+}
+
+.review-box p:last-of-type {
+  margin-bottom: 24px;
+}
+
+.review-cta-wrap {
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+/* --- Section 6: Garantia --- */
+.guarantee-thankyou-box {
+  background: linear-gradient(145deg, #111a2e 0%, #090f1d 100%);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: var(--radius-lg);
+  padding: 32px 30px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.guarantee-seal-mini {
+  width: 110px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.guarantee-seal-mini img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.5));
+}
+
+.guarantee-thankyou-content h3 {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.guarantee-thankyou-content p {
+  font-size: 0.94rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.guarantee-thankyou-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Section 7: Fechamento Emocional --- */
+.closing-box {
+  text-align: center;
+  padding: 35px 20px 20px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.closing-main-text {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  color: #ffffff;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.closing-sub-text {
+  font-size: 1rem;
+  color: var(--text-cream);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.closing-signature {
+  font-size: 0.92rem;
+  color: var(--gold-light);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.closing-signature strong {
+  display: block;
+  font-style: normal;
+  font-family: var(--font-serif-accent);
+  font-size: 0.98rem;
+  letter-spacing: 0.5px;
+  color: var(--gold-bright);
+  margin-top: 4px;
+}
+
+/* --- Footer Minimal --- */
+.thankyou-footer {
+  border-top: 1px solid var(--border-light);
+  padding: 30px 0;
+  text-align: center;
+  background: #050811;
+  margin-top: auto;
+}
+
+.thankyou-footer-product {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-bottom: 6px;
+}
+
+.thankyou-footer-support {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.thankyou-footer-support a {
+  color: var(--gold-light);
+  text-decoration: none;
+}
+
+.thankyou-footer-copy {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (MOBILE & TABLET)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .thankyou-wrapper {
+    padding: 35px 0 60px;
+  }
+
+  .container-thankyou {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .confirmation-title {
+    font-size: 1.85rem;
+    line-height: 1.25;
+  }
+
+  .confirmation-subheadline {
+    font-size: 1.02rem;
+    line-height: 1.5;
+  }
+
+  .email-highlight-card {
+    padding: 14px 18px;
+    width: 100%;
+  }
+
+  .email-highlight-card p {
+    font-size: 0.92rem;
+  }
+
+  .section-card {
+    padding: 28px 18px;
+  }
+
+  .usage-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .delivery-notice-box {
+    flex-direction: column;
+    padding: 18px 16px;
+    gap: 10px;
+  }
+
+  .delivery-notice-icon {
+    font-size: 1.5rem;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .support-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .review-box {
+    padding: 28px 18px;
+  }
+
+  .review-box h2 {
+    font-size: 1.35rem;
+  }
+
+  .review-cta-wrap {
+    max-width: 100%;
+  }
+
+  .guarantee-thankyou-box {
+    flex-direction: column;
+    text-align: center;
+    padding: 26px 18px;
+    gap: 18px;
+  }
+
+  .guarantee-seal-mini {
+    width: 100px;
+  }
+
+  .closing-main-text {
+    font-size: 1.25rem;
+  }
+
+  .closing-sub-text {
+    font-size: 0.94rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-thankyou {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .confirmation-title {
+    font-size: 1.6rem;
+  }
+
+  .confirmation-subheadline {
+    font-size: 0.96rem;
+  }
+
+  .brand-pill {
+    font-size: 0.75rem;
+    padding: 5px 14px;
+  }
+
+  .confirmation-icon-wrapper {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 18px;
+  }
+
+  .confirmation-icon-circle {
+    width: 68px;
+    height: 68px;
+  }
+
+  .confirmation-icon-circle svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .section-heading-center h2 {
+    font-size: 1.4rem;
+  }
+
+  .btn-primary-gold,
+  .btn-secondary-navy {
+    font-size: 0.88rem;
+    padding: 12px 18px;
+  }
+}
